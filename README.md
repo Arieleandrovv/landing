@@ -43,7 +43,15 @@ If you haven't already, push your local repository to GitHub.
 Link your GitHub repository to Vercel
 
 1. Go to Vercel and log in or sign up.
-2. Click on the "New Project" button.
-3. Select your GitHub repository.
-4. Deploy your project
-5. Vercel will automatically build and deploy your project. It will provide you with a unique URL to access your live project.
+2. Click on the import repository.
+3. Select your GitHub repository
+4. **Configure Environment Variables in Vercel**:
+   
+   - Go to your project settings on Vercel.
+   - Under **Settings** > **Environment Variables**, add the following variables:
+     - `NEXT_PUBLIC_SUPABASE_URL`: The URL of your Supabase project (e.g., `https://your-project-id.supabase.co`).
+     - `NEXT_PUBLIC_SUPABASE_ANON_KEY`: The anonymous key for your Supabase project.
+
+5. Deploy your project
+6. Vercel will automatically build and deploy your project. It will provide you with a unique URL to access your live project.
+
