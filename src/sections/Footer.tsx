@@ -7,8 +7,8 @@ import SocialYoutube from "@/assets/social-youtube_468.svg";
 import Image from "next/image";
 
 export const Footer = () => {
-  const d = new Date();
-  let year = d.getFullYear();
+  
+  const year = new Date().getFullYear();
   return (
     <footer className="bg-black text-[#BCBCBC] text-sm py-10 text-center">
       <div className="container">
