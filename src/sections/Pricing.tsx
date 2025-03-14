@@ -1,5 +1,4 @@
 "use client";
-
 import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import CheckIcon from "@/assets/check.svg";
@@ -23,27 +22,22 @@ export const Pricing = () => {
   useEffect(() => {
     const fetchPricingData = async () => {
       setLoading(true);
-
       const { data: tiers, error: tiersError } = await supabase
         .from("pricing_tiers")
         .select("*");
-
       if (tiersError) {
         console.error("Error fetching tiers:", tiersError.message);
         setLoading(false);
         return;
       }
-
       const { data: features, error: featuresError } = await supabase
         .from("pricing_features")
         .select("*");
-
       if (featuresError) {
         console.error("Error fetching features:", featuresError.message);
         setLoading(false);
         return;
       }
-
       const tiersWithFeatures = tiers.map((tier) => ({
         ...tier,
         features: features
@@ -54,14 +48,11 @@ export const Pricing = () => {
       setPricingTiers(tiersWithFeatures);
       setLoading(false);
     };
-
     fetchPricingData();
   }, []);
-
   if (loading) {
     return <div className="text-center py-10">Loading...</div>;
   }
-
   return (
     <section className="py-24 bg-white">
       <div className="container">
@@ -73,11 +64,7 @@ export const Pricing = () => {
         </div>
         <div className="flex flex-col gap-6 items-center mt-10 lg:flex-row lg:items-end lg:justify-center">
           {pricingTiers.map(({ id, title, monthly_price, button_text, popular, features }) => (
-            <Card
-              key={id}
-              className={`transition-all ${popular ? "bg-black text-white border-white" : "bg-white text-black"
-                }`}
-            >
+            <Card key={id} className={`transition-all ${popular ? "bg-black text-white border-white" : "bg-white text-black"}`}>
               <div className="p-2">
                 <div className="flex justify-between">
                   <h3>{title}</h3>
@@ -92,10 +79,7 @@ export const Pricing = () => {
                   <span className="text-4xl font-bold tracking-tighter leading-none">
                     ${monthly_price}
                   </span>
-                  <span
-                    className={`tracking-tight font-bold ${popular ? "text-white/50" : "text-black/50"
-                      }`}
-                  >
+                  <span className={`tracking-tight font-bold ${popular ? "text-white/50" : "text-black/50"}`}>
                     /month
                   </span>
                 </div>
@@ -112,7 +96,6 @@ export const Pricing = () => {
                 </ul>
               </div>
             </Card>
-
           ))}
         </div>
       </div>

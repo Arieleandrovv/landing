@@ -23,7 +23,6 @@ export const Footer = () => {
           <a className="link-hover-white" href="">Help</a>
           <a className="link-hover-white" href="">Careers</a>
         </nav>
-
         <div className="flex justify-center gap-6 mt-6">
           <SocialX />
           <SocialInsta />
