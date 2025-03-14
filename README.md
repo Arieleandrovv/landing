@@ -1,18 +1,21 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Installation
 
 First, clone the project to your local machine using Git:
 
+```bash
 https://github.com/Arieleandrovv/landing.git
+```
 
 Change your working directory to the project folder:
-
+```bash
 cd landing
-
+```
 Use npm to install all required dependencies:
-
+```bash
 npm install
-
+```
 ## Starting Server
 
 Second, run the development server:
